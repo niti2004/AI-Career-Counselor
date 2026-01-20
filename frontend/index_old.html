@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Counselor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 AI Career Counselor</h1>
+            <p class="subtitle">Your intelligent personalized career guidance companion</p>
+            <p class="ai-status" id="aiStatus"></p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="career-search">🔍 Career Search</button>
+            <button class="tab-btn" data-tab="skill-recommend">💡 Find by Skills</button>
+            <button class="tab-btn" data-tab="skill-gap">📊 Skill Gap Analysis</button>
+        </div>
+
+        <!-- Tab 1: Career Search -->
+        <div id="career-search" class="tab-content active">
+            <form id="careerForm" class="form-group">
+                <div class="input-section">
+                    <label for="career">What career interests you?</label>
+                    <input type="text" id="career" name="career" placeholder="e.g., Data Analyst, Software Engineer..." required>
+                    <small>💡 Tip: Typos are handled! Try 'data analist' and it will find 'data analyst'</small>
+                </div>
+
+                <div class="input-section">
+                    <label for="level">What's your current level?</label>
+                    <select id="level" name="level" required>
+                        <option value="student">👨‍🎓 Student</option>
+                        <option value="fresher" selected>🎯 Fresher / Entry-Level</option>
+                        <option value="professional">💼 Working Professional</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Get My Career Roadmap</button>
+            </form>
+
+            <div id="careerResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 2: Recommend by Skills -->
+        <div id="skill-recommend" class="tab-content">
+            <form id="skillForm" class="form-group">
+                <div class="input-section">
+                    <label for="skillInput">Enter your skills (comma-separated)</label>
+                    <input type="text" id="skillInput" placeholder="e.g., Python, SQL, Excel, Communication..." required>
+                    <small>💡 Tip: Enter skills you currently have. AI will find the best matching careers!</small>
+                </div>
+
+                <button type="submit" class="btn-submit">Find Matching Careers</button>
+            </form>
+
+            <div id="recommendResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 3: Skill Gap Analysis -->
+        <div id="skill-gap" class="tab-content">
+            <form id="gapForm" class="form-group">
+                <div class="input-section">
+                    <label for="gapCareer">Target Career</label>
+                    <input type="text" id="gapCareer" placeholder="e.g., Data Analyst..." required>
+                </div>
+
+                <div class="input-section">
+                    <label for="gapSkills">Your Current Skills (comma-separated)</label>
+                    <input type="text" id="gapSkills" placeholder="e.g., Excel, Python...">
+                    <small>💡 Leave blank to see all required skills</small>
+                </div>
+
+                <button type="submit" class="btn-submit">Analyze My Skill Gap</button>
+            </form>
+
+            <div id="gapResult" class="result-container"></div>
+        </div>
+
+        <div class="available-careers">
+            <p><strong>📚 Available Careers:</strong> Data Analyst, Software Engineer, Web Developer, Machine Learning Engineer, Product Manager, UX Designer, Cybersecurity Analyst, Cloud Architect</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

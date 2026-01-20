@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Counselor - Personalized Career Guidance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="main-title">🚀 AI Career Counselor</h1>
+                <p class="subtitle">Your intelligent personalized career guidance companion</p>
+                <p class="ai-status" id="aiStatus">Loading...</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="career-search">🔍 Career Search</button>
+            <button class="tab-btn" data-tab="skill-recommend">💡 Find by Skills</button>
+            <button class="tab-btn" data-tab="skill-gap">📊 Skill Gap</button>
+            <button class="tab-btn" data-tab="compare">⚖️ Compare Careers</button>
+            <button class="tab-btn" data-tab="browse">🌐 Browse All</button>
+        </div>
+
+        <!-- Tab 1: Career Search -->
+        <div id="career-search" class="tab-content active">
+            <form id="careerForm" class="form-group">
+                <div class="input-section">
+                    <label for="career">What career interests you?</label>
+                    <input type="text" id="career" name="career" placeholder="e.g., Data Analyst, Software Engineer..." required>
+                    <small>💡 Smart matching handles typos automatically</small>
+                </div>
+
+                <div class="input-section">
+                    <label for="level">Your current level:</label>
+                    <select id="level" name="level" required>
+                        <option value="student">👨‍🎓 Student</option>
+                        <option value="fresher" selected>🎯 Entry-Level / Fresher</option>
+                        <option value="professional">💼 Working Professional</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">✨ Get My Career Roadmap</button>
+            </form>
+
+            <div id="careerResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 2: Recommend by Skills -->
+        <div id="skill-recommend" class="tab-content">
+            <form id="skillForm" class="form-group">
+                <div class="input-section">
+                    <label for="skillInput">Your current skills</label>
+                    <input type="text" id="skillInput" placeholder="e.g., Python, SQL, Excel, Communication..." required>
+                    <small>💡 Enter comma-separated skills. We'll find matching careers!</small>
+                </div>
+
+                <button type="submit" class="btn-submit">🎯 Find Matching Careers</button>
+            </form>
+
+            <div id="recommendResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 3: Skill Gap Analysis -->
+        <div id="skill-gap" class="tab-content">
+            <form id="gapForm" class="form-group">
+                <div class="input-section">
+                    <label for="gapCareer">Target Career</label>
+                    <input type="text" id="gapCareer" placeholder="e.g., Data Analyst..." required>
+                </div>
+
+                <div class="input-section">
+                    <label for="gapSkills">Your current skills</label>
+                    <input type="text" id="gapSkills" placeholder="e.g., Excel, Python... (optional)">
+                    <small>💡 Leave blank to see all required skills</small>
+                </div>
+
+                <button type="submit" class="btn-submit">📈 Analyze My Gap</button>
+            </form>
+
+            <div id="gapResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 4: Compare Careers -->
+        <div id="compare" class="tab-content">
+            <form id="compareForm" class="form-group">
+                <div class="input-section">
+                    <label for="career1">Career 1</label>
+                    <input type="text" id="career1" placeholder="e.g., Data Analyst" required>
+                </div>
+
+                <div class="input-section">
+                    <label for="career2">Career 2</label>
+                    <input type="text" id="career2" placeholder="e.g., Software Engineer" required>
+                </div>
+
+                <div class="input-section">
+                    <label for="career3">Career 3 (optional)</label>
+                    <input type="text" id="career3" placeholder="e.g., Machine Learning Engineer">
+                </div>
+
+                <button type="submit" class="btn-submit">⚖️ Compare</button>
+            </form>
+
+            <div id="compareResult" class="result-container"></div>
+        </div>
+
+        <!-- Tab 5: Browse All Careers -->
+        <div id="browse" class="tab-content">
+            <div class="form-group">
+                <div class="input-section">
+                    <label for="searchKeyword">Search Careers</label>
+                    <input type="text" id="searchKeyword" placeholder="e.g., AI, data, engineer...">
+                    <button type="button" class="btn-submit" onclick="searchCareers()">🔎 Search</button>
+                </div>
+            </div>
+
+            <div id="browseResult" class="result-container">
+                <p>Tip: Type a keyword to search careers, or click on any career below to see details.</p>
+            </div>
+
+            <div id="allCareersGrid" class="careers-grid"></div>
+        </div>
+
+        <div class="available-careers">
+            <p><strong>📚 Available Careers:</strong> Data Analyst, Software Engineer, Web Developer, Machine Learning Engineer, Product Manager, UX Designer, Cybersecurity Analyst, Cloud Architect + 5 more in O*NET</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
